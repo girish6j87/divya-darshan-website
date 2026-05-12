@@ -61,15 +61,15 @@ npm install
 
 Just drop your images into `public/images/` folder. **Name them by package ID** - the code handles everything automatically!
 
-| Filename | Package | Recommended Size |
-|----------|---------|------------------|
-| `ex-dharchula-3d2n.jpg` | Adikailash from Dharchula (3D) | 1920x1080 |
-| `ex-pithoragarh-3d2n.jpg` | Adikailash from Pithoragarh (3D) | 1920x1080 |
-| `ex-kathgodam-direct-5d4n.jpg` | Direct from Kathgodam (5D) | 1920x1080 |
-| `ex-kathgodam-kumaon-6d5n.jpg` | With Kumaon Darshan (6D) | 1920x1080 |
-| `ex-kathgodam-darma-8d7n.jpg` | With Darma Valley (8D) | 1920x1080 |
-| `ex-delhi-direct-5d4n.jpg` | Direct from Delhi (5D) | 1920x1080 |
-| `ex-delhi-kumaon-8d7n.jpg` | Delhi with Kumaon (8D) | 1920x1080 |
+| Filename | Package | Duration | Recommended Size |
+|----------|---------|----------|------------------|
+| `ex-dharchula-3d2n.jpg` | Adikailash from Dharchula | 3 Days / 2 Nights | 1920x1080 |
+| `ex-pithoragarh-3d2n.jpg` | Adikailash from Pithoragarh | 3 Days / 2 Nights | 1920x1080 |
+| `ex-kathgodam-direct-5d4n.jpg` | Direct from Kathgodam | 5 Days / 4 Nights | 1920x1080 |
+| `ex-kathgodam-kumaon-6d5n.jpg` | With Kumaon Darshan | 6 Days / 5 Nights | 1920x1080 |
+| `ex-kathgodam-darma-8d7n.jpg` | With Darma Valley | 8 Days / 7 Nights | 1920x1080 |
+| `ex-delhi-direct-5d4n.jpg` | Direct from Delhi | 5 Days / 4 Nights | 1920x1080 |
+| `ex-delhi-kumaon-8d7n.jpg` | Delhi with Kumaon | 8 Days / 7 Nights | 1920x1080 |
 
 **How it works:**
 - Images are automatically matched by package ID
