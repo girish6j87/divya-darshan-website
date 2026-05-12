@@ -1,12 +1,31 @@
+"use client";
+
+import { useState } from "react";
 import PremiumPackageCard from "@/components/PremiumPackageCard";
 import { packages } from "@/data/packages";
 
-export const metadata = {
-  title: "Tour Packages - Divya Darshan | Adikailash & Omparvat Yatra",
-  description: "Explore our range of pilgrimage packages to Adikailash, Omparvat, and Kailash. Choose from 3-day to 8-day tours starting from Rs. 10,800.",
-};
+type FilterType = "all" | "dharchula" | "pithoragarh" | "kathgodam" | "delhi";
 
 export default function PackagesPage() {
+  const [activeFilter, setActiveFilter] = useState<FilterType>("all");
+
+  const filteredPackages = packages.filter((pkg) => {
+    if (activeFilter === "all") return true;
+    if (activeFilter === "dharchula") return pkg.pickupDropoff.toLowerCase().includes("dharchula");
+    if (activeFilter === "pithoragarh") return pkg.pickupDropoff.toLowerCase().includes("pithoragarh");
+    if (activeFilter === "kathgodam") return pkg.pickupDropoff.toLowerCase().includes("kathgodam");
+    if (activeFilter === "delhi") return pkg.pickupDropoff.toLowerCase().includes("delhi");
+    return true;
+  });
+
+  const filters: { key: FilterType; label: string }[] = [
+    { key: "all", label: "All Packages" },
+    { key: "dharchula", label: "Ex Dharchula" },
+    { key: "pithoragarh", label: "Ex Pithoragarh" },
+    { key: "kathgodam", label: "Ex Kathgodam" },
+    { key: "delhi", label: "Ex Delhi" },
+  ];
+
   return (
     <div className="bg-black min-h-screen">
       {/* Hero Section */}
@@ -35,18 +54,19 @@ export default function PackagesPage() {
       <section className="py-8 bg-slate-900/50 border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-4 justify-center">
-            <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-black px-5 py-2 rounded-full text-sm font-bold cursor-pointer">
-              All Packages
-            </span>
-            <span className="bg-slate-800 text-gray-300 px-5 py-2 rounded-full text-sm font-medium cursor-pointer hover:bg-slate-700 border border-slate-700 hover:border-amber-500/50 transition-colors">
-              Ex Dharchula
-            </span>
-            <span className="bg-slate-800 text-gray-300 px-5 py-2 rounded-full text-sm font-medium cursor-pointer hover:bg-slate-700 border border-slate-700 hover:border-amber-500/50 transition-colors">
-              Ex Kathgodam
-            </span>
-            <span className="bg-slate-800 text-gray-300 px-5 py-2 rounded-full text-sm font-medium cursor-pointer hover:bg-slate-700 border border-slate-700 hover:border-amber-500/50 transition-colors">
-              Ex Delhi
-            </span>
+            {filters.map((filter) => (
+              <button
+                key={filter.key}
+                onClick={() => setActiveFilter(filter.key)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeFilter === filter.key
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-bold"
+                    : "bg-slate-800 text-gray-300 border border-slate-700 hover:border-amber-500/50 hover:bg-slate-700"
+                }`}
+              >
+                {filter.label}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -54,11 +74,23 @@ export default function PackagesPage() {
       {/* Packages Grid */}
       <section className="py-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {packages.map((pkg, index) => (
-              <PremiumPackageCard key={pkg.id} pkg={pkg} index={index} />
-            ))}
-          </div>
+          {filteredPackages.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPackages.map((pkg, index) => (
+                <PremiumPackageCard key={pkg.id} pkg={pkg} index={index} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16">
+              <p className="text-gray-400 text-lg">No packages found for this filter.</p>
+              <button
+                onClick={() => setActiveFilter("all")}
+                className="mt-4 text-amber-400 hover:text-amber-300 font-medium"
+              >
+                View all packages
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
