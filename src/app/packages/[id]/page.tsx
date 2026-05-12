@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { packages, inclusions, exclusions, packingList } from "@/data/packages";
+import PackageImage from "@/components/PackageImage";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -35,6 +36,17 @@ export default async function PackageDetailPage({ params }: PageProps) {
     <div className="bg-black min-h-screen">
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-black via-slate-900 to-black overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <PackageImage
+            packageId={pkg.id}
+            alt={pkg.name}
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/50" />
+        </div>
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />

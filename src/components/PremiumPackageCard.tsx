@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { TourPackage } from "@/data/packages";
+import PackageImage from "./PackageImage";
 
 interface PremiumPackageCardProps {
   pkg: TourPackage;
@@ -21,6 +22,17 @@ export default function PremiumPackageCard({ pkg, index = 0, featured = false }:
         featured ? "md:col-span-2 md:row-span-2" : ""
       }`}
     >
+      {/* Package Image */}
+      <div className={`relative overflow-hidden ${featured ? "h-64" : "h-48"}`}>
+        <PackageImage
+          packageId={pkg.id}
+          alt={pkg.name}
+          fill
+          className="object-cover group-hover:scale-110 transition-transform duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
+      </div>
+
       {/* Glow effect on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 to-orange-500/0 group-hover:from-amber-500/5 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
 

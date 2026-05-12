@@ -57,25 +57,24 @@ cd divya-darshan-website
 npm install
 ```
 
-### 3. Add Images
+### 3. Add Images (Simple!)
 
-Create the images folder and add your images:
+Just drop your images into `public/images/` folder. **Name them by package ID** - the code handles everything automatically!
 
-```bash
-mkdir -p public/images
-```
+| Filename | Package | Recommended Size |
+|----------|---------|------------------|
+| `ex-dharchula-3d2n.jpg` | Adikailash from Dharchula (3D) | 1920x1080 |
+| `ex-pithoragarh-3d2n.jpg` | Adikailash from Pithoragarh (3D) | 1920x1080 |
+| `ex-kathgodam-direct-5d4n.jpg` | Direct from Kathgodam (5D) | 1920x1080 |
+| `ex-kathgodam-kumaon-6d5n.jpg` | With Kumaon Darshan (6D) | 1920x1080 |
+| `ex-kathgodam-darma-8d7n.jpg` | With Darma Valley (8D) | 1920x1080 |
+| `ex-delhi-direct-5d4n.jpg` | Direct from Delhi (5D) | 1920x1080 |
+| `ex-delhi-kumaon-8d7n.jpg` | Delhi with Kumaon (8D) | 1920x1080 |
 
-Add the following images to `public/images/`:
-
-| Filename | Description | Recommended Size |
-|----------|-------------|------------------|
-| `adikailash-hero.jpg` | Adikailash mountain view | 1920x1080 |
-| `omparvat.jpg` | Omparvat scenic view | 1920x1080 |
-| `himalayan-valley.jpg` | Himalayan valley landscape | 1920x1080 |
-| `jageshwar.jpg` | Jageshwar temple | 1920x1080 |
-| `panchachuli.jpg` | Panchachuli peaks | 1920x1080 |
-| `kailash-view.jpg` | Kailash mountain view | 1920x1080 |
-| `patal-bhuvneshwar.jpg` | Patal Bhuvaneshwar cave | 1920x1080 |
+**How it works:**
+- Images are automatically matched by package ID
+- If an image is missing, a beautiful placeholder is shown
+- No code changes needed - just add/replace images!
 
 ### 4. Run Development Server
 

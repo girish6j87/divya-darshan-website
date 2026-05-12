@@ -12,10 +12,15 @@ export interface TourPackage {
   pickupDropoff: string;
   price: number;
   priceNote: string;
-  image: string;
   description: string;
   itinerary: DayItinerary[];
   highlights: string[];
+}
+
+// Helper function to get image path from package ID
+// Just add images named as: {package-id}.jpg to public/images/
+export function getPackageImage(packageId: string): string {
+  return `/images/${packageId}.jpg`;
 }
 
 export const packages: TourPackage[] = [
@@ -27,7 +32,6 @@ export const packages: TourPackage[] = [
     pickupDropoff: "Ex Dharchula",
     price: 10800,
     priceNote: "Mix Group of 4 Pax",
-    image: "/images/adikailash-hero.jpg",
     description: "Experience the divine journey to Adikailash and Omparvat starting from Dharchula. Witness breathtaking views of the Himalayas and sacred sites.",
     highlights: [
       "Bird's eye view of India and Nepal border",
@@ -79,7 +83,6 @@ export const packages: TourPackage[] = [
     pickupDropoff: "Ex Pithoragarh",
     price: 12800,
     priceNote: "Mix Group of 4 Pax",
-    image: "/images/omparvat.jpg",
     description: "Begin your sacred journey from Pithoragarh and explore the divine Adikailash and Omparvat with stunning Himalayan views.",
     highlights: [
       "Bird's eye view of India and Nepal border",
@@ -131,7 +134,6 @@ export const packages: TourPackage[] = [
     pickupDropoff: "Ex Kathgodam (Direct)",
     price: 17800,
     priceNote: "Mix Group of 4 Pax",
-    image: "/images/himalayan-valley.jpg",
     description: "A comprehensive 5-day journey from Kathgodam covering the sacred Adikailash and Omparvat with comfortable stays.",
     highlights: [
       "Lush Green Valley of Uttarakhand",
@@ -202,7 +204,6 @@ export const packages: TourPackage[] = [
     pickupDropoff: "Ex Kathgodam (Kumaon Darshan)",
     price: 22000,
     priceNote: "Mix Group of 4 Pax",
-    image: "/images/jageshwar.jpg",
     description: "Experience the best of Kumaon region along with the divine Adikailash Yatra. Visit Kainchi Dham, Jageshwar Dham, and more.",
     highlights: [
       "Kainchi Dham & Baba Neeb Karoli Ashram",
@@ -284,7 +285,6 @@ export const packages: TourPackage[] = [
     pickupDropoff: "Ex Kathgodam (Kumaon Darshan + Darma Valley)",
     price: 27500,
     priceNote: "Mix Group of 4 Pax",
-    image: "/images/panchachuli.jpg",
     description: "The ultimate Himalayan adventure combining Adikailash, Kumaon Darshan, and the magnificent Darma Valley with Panchachuli Base Camp trek.",
     highlights: [
       "Kainchi Dham & Jageshwar Dham",
@@ -381,7 +381,6 @@ export const packages: TourPackage[] = [
     pickupDropoff: "Ex Delhi (Direct)",
     price: 20800,
     priceNote: "Mix Group of 4 Pax",
-    image: "/images/kailash-view.jpg",
     description: "Start your divine journey directly from Delhi for a comfortable 5-day pilgrimage to Adikailash and Omparvat.",
     highlights: [
       "Convenient Delhi Pickup",
@@ -450,7 +449,6 @@ export const packages: TourPackage[] = [
     pickupDropoff: "Ex Delhi (Kumaon Darshan)",
     price: 28500,
     priceNote: "Mix Group of 4 Pax",
-    image: "/images/patal-bhuvneshwar.jpg",
     description: "The most comprehensive tour starting from Delhi covering Bhimtal, Kumaon temples, Adikailash, Omparvat, and Patal Bhuvneshwar.",
     highlights: [
       "Bhimtal Lake Stay",
