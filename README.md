@@ -170,12 +170,24 @@ export const tourPackages: TourPackage[] = [
 
 ### Updating Contact Information
 
-Search and replace the following in the codebase:
+Contact details are in multiple files. Here's the complete list:
 
-- **Phone:** `+91 XXXXX XXXXX`
-- **Email:** `info@divyadarshan.com`
-- **WhatsApp:** Update in `FloatingWhatsApp.tsx`
-- **Address:** Update in `Footer.tsx` and `Contact` page
+| File | What to Update |
+|------|----------------|
+| `src/components/Footer.tsx` | Phone, WhatsApp, Address |
+| `src/components/FloatingWhatsApp.tsx` | WhatsApp number & message |
+| `src/components/WhatsAppButton.tsx` | WhatsApp number |
+| `src/app/contact/page.tsx` | Phone, Email, WhatsApp, Address |
+| `src/app/booking/page.tsx` | Phone, WhatsApp |
+| `src/app/packages/[id]/page.tsx` | Phone, WhatsApp |
+| `src/app/page.tsx` | Phone number in CTA |
+
+**Quick Find & Replace:**
+```
+Find: 919876543210          → Replace with: Your WhatsApp (without +)
+Find: +91 98765 43210       → Replace with: Your display phone
+Find: info@divyadarshan.com → Replace with: Your email
+```
 
 ### Adding New Pages
 
@@ -187,6 +199,42 @@ Example for `/gallery`:
 ```
 src/app/gallery/page.tsx
 ```
+
+## How to Update & Deploy (Step-by-Step)
+
+Follow these steps whenever you want to make changes to the website:
+
+### Step 1: Make Your Changes
+
+Edit the relevant files locally:
+- **Contact details** → See "Updating Contact Information" above
+- **Package prices/details** → Edit `src/data/packages.ts`
+- **Images** → Add/replace in `public/images/`
+- **Colors** → Edit `src/app/globals.css`
+
+### Step 2: Test Locally (Optional but Recommended)
+
+```bash
+cd divya-darshan-website
+npm run dev
+```
+Open http://localhost:3000 to preview changes.
+
+### Step 3: Commit & Push to GitHub
+
+```bash
+git add .
+git commit -m "Update: describe your changes"
+git push
+```
+
+### Step 4: Auto-Deploy
+
+**That's it!** Vercel automatically detects the push and deploys your changes within 1-2 minutes.
+
+Check deployment status at: https://vercel.com/dashboard
+
+---
 
 ## Deployment
 
