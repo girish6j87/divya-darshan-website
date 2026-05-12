@@ -319,7 +319,12 @@ The website is optimized for performance:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+**All Rights Reserved** - This project is proprietary software owned by Divya Darshan Pilgrimage Services.
+
+- No copying, modifying, or distributing without written permission
+- For licensing inquiries, contact: info@divyadarshan.com
+
+See the [LICENSE](LICENSE) file for full details.
 
 ## Support
 
